@@ -139,12 +139,12 @@ namespace PlanetaryDocs.DataAccess
                 return;
             }
 
-            var docs = await Documents.FromSqlRaw(
-                "select c.id, c.Uid, c.AuthorAlias, c.Description, c.Html, c.Markdown, c.PublishDate, c.Title, STRINGTOARRAY(c.Tags) as Tags from c").ToListAsync();
-            foreach (var doc in docs)
-            {
-                Entry(doc).State = EntityState.Modified;
-            }
+            //var docs = await Documents.FromSqlRaw(
+            //    "select c.id, c.Uid, c.AuthorAlias, c.Description, c.Html, c.Markdown, c.PublishDate, c.Title, STRINGTOARRAY(c.Tags) as Tags from c").ToListAsync();
+            //foreach (var doc in docs)
+            //{
+            //    Entry(doc).State = EntityState.Modified;
+            //}
 
             await SaveChangesAsync();
         }
